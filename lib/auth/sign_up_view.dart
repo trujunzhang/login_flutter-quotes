@@ -111,181 +111,7 @@ class _SignUpViewState extends State<SignUpView> {
               Stack(
                 alignment: Alignment.topCenter,
                 children: <Widget>[
-                  Card(
-                    elevation: 2.0,
-                    color: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    child: Container(
-                      width: 300.0,
-                      height: 340.0,
-                      margin: EdgeInsets.only(bottom: 20.0),
-                      child: Form(
-                        key: _signUpFormKey,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Padding(
-                              padding: EdgeInsets.only(
-                                  top: 10.0,
-                                  bottom: 15.0,
-                                  left: 25.0,
-                                  right: 25.0),
-                              child: TextFormField(
-                                focusNode: mFocusNodeName,
-                                controller: signUpNameController,
-                                keyboardType: TextInputType.text,
-                                textCapitalization: TextCapitalization.words,
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 16.0,
-                                    color: Colors.black),
-                                decoration: InputDecoration(
-                                  icon: Icon(
-                                    Icons.person,
-                                    color: Colors.black,
-                                  ),
-                                  hintText: "Name",
-                                  hintStyle: TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 16.0),
-                                ),
-                                validator: (String name) {
-                                  if (name.isEmpty) {
-                                    return 'valid name is required.';
-                                  }
-                                },
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(
-                                  top: 0.0,
-                                  bottom: 15.0,
-                                  left: 25.0,
-                                  right: 25.0),
-                              child: TextFormField(
-                                focusNode: mFocusNodeEmail,
-                                controller: signUpEmailController,
-                                keyboardType: TextInputType.emailAddress,
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 16.0,
-                                    color: Colors.black),
-                                decoration: InputDecoration(
-                                  icon: Icon(
-                                    Icons.email,
-                                    color: Colors.black,
-                                  ),
-                                  hintText: "Email Address",
-                                  hintStyle: TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 16.0),
-                                ),
-                                validator: (String email) {
-                                  if (email.isEmpty ||
-                                      !RegExp(r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
-                                          .hasMatch(email)) {
-                                    return 'valid email is required.';
-                                  }
-                                },
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(
-                                  top: 0.0,
-                                  bottom: 15.0,
-                                  left: 25.0,
-                                  right: 25.0),
-                              child: TextFormField(
-                                focusNode: mFocusNodePassword,
-                                controller: signUpPasswordController,
-                                obscureText: _obscureTextSignUp,
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 16.0,
-                                    color: Colors.black),
-                                decoration: InputDecoration(
-                                  icon: Icon(
-                                    Icons.lock,
-                                    color: Colors.black,
-                                  ),
-                                  hintText: "Password",
-                                  hintStyle: TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 16.0),
-                                  suffixIcon: GestureDetector(
-                                    onTap: () {
-                                      _obscureTextSignUp = !_obscureTextSignUp;
-                                    },
-                                    child: Icon(
-                                      _obscureTextSignUp
-                                          ? FontAwesomeIcons.eye
-                                          : FontAwesomeIcons.eyeSlash,
-                                      size: 15.0,
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                ),
-                                validator: (String password) {
-                                  if (password.isEmpty && password.length < 4) {
-                                    return 'valid password is required.';
-                                  }
-                                },
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(
-                                  top: 0.0,
-                                  bottom: 15.0,
-                                  left: 25.0,
-                                  right: 25.0),
-                              child: TextFormField(
-                                controller: signUpConfirmPasswordController,
-                                obscureText: _obscureTextSignUpConfirm,
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 16.0,
-                                    color: Colors.black),
-                                decoration: InputDecoration(
-                                  icon: Icon(
-                                    Icons.lock,
-                                    color: Colors.black,
-                                  ),
-                                  hintText: "Confirmation",
-                                  hintStyle: TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 16.0),
-                                  suffixIcon: GestureDetector(
-                                    onTap: () {
-                                      _obscureTextSignUpConfirm =
-                                          !_obscureTextSignUpConfirm;
-                                    },
-                                    child: Icon(
-                                      _obscureTextSignUpConfirm
-                                          ? FontAwesomeIcons.eye
-                                          : FontAwesomeIcons.eyeSlash,
-                                      size: 20.0,
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                ),
-                                validator: (String value) {
-                                  if (value.isEmpty) {
-                                    return "confirmation is required.";
-                                  }
-                                  if (signUpPasswordController.text != value) {
-                                    return 'passwords do not match.';
-                                  }
-                                  return "";
-                                },
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
+                  bg(),
                   Container(
                     margin: EdgeInsets.only(top: 340.0),
                     decoration: BoxDecoration(
@@ -356,6 +182,167 @@ class _SignUpViewState extends State<SignUpView> {
                         fontSize: 16.0,
                         fontWeight: FontWeight.w500),
                   ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget bg() {
+    return Card(
+      elevation: 2.0,
+      color: Colors.white,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      child: Container(
+        width: 300.0,
+        height: 340.0,
+        margin: EdgeInsets.only(bottom: 20.0),
+        child: Form(
+          key: _signUpFormKey,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.only(
+                    top: 10.0, bottom: 15.0, left: 25.0, right: 25.0),
+                child: TextFormField(
+                  focusNode: mFocusNodeName,
+                  controller: signUpNameController,
+                  keyboardType: TextInputType.text,
+                  textCapitalization: TextCapitalization.words,
+                  style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16.0,
+                      color: Colors.black),
+                  decoration: InputDecoration(
+                    icon: Icon(
+                      Icons.person,
+                      color: Colors.black,
+                    ),
+                    hintText: "Name",
+                    hintStyle:
+                        TextStyle(fontWeight: FontWeight.w500, fontSize: 16.0),
+                  ),
+                  validator: (String name) {
+                    if (name.isEmpty) {
+                      return 'valid name is required.';
+                    }
+                  },
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                    top: 0.0, bottom: 15.0, left: 25.0, right: 25.0),
+                child: TextFormField(
+                  focusNode: mFocusNodeEmail,
+                  controller: signUpEmailController,
+                  keyboardType: TextInputType.emailAddress,
+                  style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16.0,
+                      color: Colors.black),
+                  decoration: InputDecoration(
+                    icon: Icon(
+                      Icons.email,
+                      color: Colors.black,
+                    ),
+                    hintText: "Email Address",
+                    hintStyle:
+                        TextStyle(fontWeight: FontWeight.w500, fontSize: 16.0),
+                  ),
+                  validator: (String email) {
+                    if (email.isEmpty ||
+                        !RegExp(r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
+                            .hasMatch(email)) {
+                      return 'valid email is required.';
+                    }
+                  },
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                    top: 0.0, bottom: 15.0, left: 25.0, right: 25.0),
+                child: TextFormField(
+                  focusNode: mFocusNodePassword,
+                  controller: signUpPasswordController,
+                  obscureText: _obscureTextSignUp,
+                  style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16.0,
+                      color: Colors.black),
+                  decoration: InputDecoration(
+                    icon: Icon(
+                      Icons.lock,
+                      color: Colors.black,
+                    ),
+                    hintText: "Password",
+                    hintStyle:
+                        TextStyle(fontWeight: FontWeight.w500, fontSize: 16.0),
+                    suffixIcon: GestureDetector(
+                      onTap: () {
+                        _obscureTextSignUp = !_obscureTextSignUp;
+                      },
+                      child: Icon(
+                        _obscureTextSignUp
+                            ? FontAwesomeIcons.eye
+                            : FontAwesomeIcons.eyeSlash,
+                        size: 15.0,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                  validator: (String password) {
+                    if (password.isEmpty && password.length < 4) {
+                      return 'valid password is required.';
+                    }
+                  },
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                    top: 0.0, bottom: 15.0, left: 25.0, right: 25.0),
+                child: TextFormField(
+                  controller: signUpConfirmPasswordController,
+                  obscureText: _obscureTextSignUpConfirm,
+                  style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16.0,
+                      color: Colors.black),
+                  decoration: InputDecoration(
+                    icon: Icon(
+                      Icons.lock,
+                      color: Colors.black,
+                    ),
+                    hintText: "Confirmation",
+                    hintStyle:
+                        TextStyle(fontWeight: FontWeight.w500, fontSize: 16.0),
+                    suffixIcon: GestureDetector(
+                      onTap: () {
+                        _obscureTextSignUpConfirm = !_obscureTextSignUpConfirm;
+                      },
+                      child: Icon(
+                        _obscureTextSignUpConfirm
+                            ? FontAwesomeIcons.eye
+                            : FontAwesomeIcons.eyeSlash,
+                        size: 20.0,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                  validator: (String value) {
+                    if (value.isEmpty) {
+                      return "confirmation is required.";
+                    }
+                    if (signUpPasswordController.text != value) {
+                      return 'passwords do not match.';
+                    }
+                    return "";
+                  },
                 ),
               ),
             ],
