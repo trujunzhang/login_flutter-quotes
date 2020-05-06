@@ -8,7 +8,6 @@ import 'package:flutter_quotes/providers/quotes_provider.dart';
 import 'package:flutter_quotes/utils/color_utils.dart';
 import 'package:flutter_quotes/utils/sharedprefs_utils.dart';
 import 'package:provider/provider.dart';
-import 'package:shimmer/shimmer.dart';
 
 class QuotesDashboard extends StatefulWidget {
   static const routeName = "/quotes-dashboard";
