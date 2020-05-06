@@ -16,14 +16,15 @@ class AuthProvider with ChangeNotifier {
   String get password => _userPassword;
 
   Future<bool> isUserAuthenticated() async {
-    String email=await SharedPrefs.userEmail;
+    String email = await SharedPrefs.userEmail;
 
-    return email!=null && email.isNotEmpty;
+    return email != null && email.isNotEmpty;
   }
 
   Future<void> firebaseLogin(String email, String password) async {
     try {
-       await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
+      await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
       _userEmail = email;
       _userPassword = password;
 
@@ -40,16 +41,16 @@ class AuthProvider with ChangeNotifier {
         prefs.setString("userID", _userID);
         prefs.setString("userPassword", _userPassword);*/
 
-        for(var value in snapShot.value.values){
+        for (var value in snapShot.value.values) {
           SharedPrefs.userEmail = _userEmail;
           SharedPrefs.userPassword = _userPassword;
 
           SharedPrefs.userID = value["userID"];
-          SharedPrefs.userName= value["userName"];
-          SharedPrefs.userDesignation=value["userDesignation"];
-          SharedPrefs.userWebsite=value["userWebsite"];
-          SharedPrefs.userContact=value["userContact"];
-          SharedPrefs.userPhoto=value["userPhoto"];
+          SharedPrefs.userName = value["userName"];
+          SharedPrefs.userDesignation = value["userDesignation"];
+          SharedPrefs.userWebsite = value["userWebsite"];
+          SharedPrefs.userContact = value["userContact"];
+          SharedPrefs.userPhoto = value["userPhoto"];
         }
 
         notifyListeners();
@@ -68,7 +69,8 @@ class AuthProvider with ChangeNotifier {
   Future<void> firebaseSignUp(
       String email, String password, String name) async {
     try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password);
+      await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(email: email, password: password);
 
       /*final SharedPreferences prefs = await SharedPreferences.getInstance();
       prefs.setString("userEmail", _userEmail);
@@ -77,10 +79,10 @@ class AuthProvider with ChangeNotifier {
       prefs.setString("userName", _userName);
       String firebaseToken = prefs.getString("userToken");*/
 
-
       String firebaseToken = await SharedPrefs.userFirebaseToken;
-      final userReference = FirebaseDatabase.instance.reference().child("Users");
-      String ID= userReference.push().key;
+      final userReference =
+          FirebaseDatabase.instance.reference().child("Users");
+      String ID = userReference.push().key;
       _userEmail = email;
       _userPassword = password;
       _userName = name;
@@ -89,9 +91,8 @@ class AuthProvider with ChangeNotifier {
         "userName": _userName,
         "userEmail": _userEmail,
         "userPassword": _userPassword,
-        "deviceToken": firebaseToken == null || firebaseToken.isEmpty
-            ? ""
-            : firebaseToken,
+        "deviceToken":
+            firebaseToken == null || firebaseToken.isEmpty ? "" : firebaseToken,
         "updatedAt": DateTime.now().millisecondsSinceEpoch,
         "createdAt": DateTime.now().millisecondsSinceEpoch,
         "userID": ID,

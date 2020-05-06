@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
             home: FutureBuilder<bool>(
                 future: auth.isUserAuthenticated(),
                 builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
-                  if(!snapshot.hasData){
+                  if (!snapshot.hasData) {
                     return Container(
                       color: Colors.white,
                     );
@@ -55,7 +55,8 @@ class MyApp extends StatelessWidget {
             routes: {
               AuthPage.routeName: (context) => AuthPage(),
               QuotesDashboard.routeName: (context) => QuotesDashboard(),
-              QuotesCreation.routeName: (context) => QuotesCreation("Create a Quote"),
+              QuotesCreation.routeName: (context) =>
+                  QuotesCreation("Create a Quote"),
               UserProfile.routeName: (context) => UserProfile(),
             },
           );

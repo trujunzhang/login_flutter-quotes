@@ -33,7 +33,7 @@ class _AuthPageState extends State<AuthPage> {
   TextEditingController signUpNameController = TextEditingController();
   TextEditingController signUpPasswordController = TextEditingController();
   TextEditingController signUpConfirmPasswordController =
-  TextEditingController();
+      TextEditingController();
 
   PageController _pageController = PageController(initialPage: 0);
   GlobalKey<FormState> _loginFormKey = GlobalKey();
@@ -56,7 +56,8 @@ class _AuthPageState extends State<AuthPage> {
     NetworkCheck networkCheck = NetworkCheck();
     networkCheck.checkInternet((isNetworkPresent) async {
       if (!isNetworkPresent) {
-        final snackBar = SnackBar(content: Text("Please check your internet connection !!"));
+        final snackBar =
+            SnackBar(content: Text("Please check your internet connection !!"));
 
         Scaffold.of(context).showSnackBar(snackBar);
         return;
@@ -66,8 +67,7 @@ class _AuthPageState extends State<AuthPage> {
         });
 
         try {
-          await Provider.of<AuthProvider>(context, listen: false)
-              .firebaseLogin(
+          await Provider.of<AuthProvider>(context, listen: false).firebaseLogin(
               loginEmailController.text, loginPasswordController.text);
 
           setState(() {
@@ -75,8 +75,7 @@ class _AuthPageState extends State<AuthPage> {
           });
 
           Navigator.pushReplacementNamed(context, QuotesDashboard.routeName);
-        }
-        on PlatformException catch(error){
+        } on PlatformException catch (error) {
           print("PlatformException error : ${error.toString()}");
 
           setState(() {
@@ -92,7 +91,8 @@ class _AuthPageState extends State<AuthPage> {
             isLoginAuthenticating = false;
           });
 
-          final snackBar = SnackBar(content: Text("Something went wrong. Please try again!!"));
+          final snackBar = SnackBar(
+              content: Text("Something went wrong. Please try again!!"));
           Scaffold.of(context).showSnackBar(snackBar);
         }
       }
@@ -108,7 +108,7 @@ class _AuthPageState extends State<AuthPage> {
     networkCheck.checkInternet((isNetworkPresent) async {
       if (!isNetworkPresent) {
         final snackBar =
-        SnackBar(content: Text("Please check your internet connection !!"));
+            SnackBar(content: Text("Please check your internet connection !!"));
 
         Scaffold.of(context).showSnackBar(snackBar);
         return;
@@ -118,17 +118,16 @@ class _AuthPageState extends State<AuthPage> {
         });
 
         try {
-          await Provider.of<AuthProvider>(context, listen: false).firebaseSignUp(
-              signUpEmailController.text,
-              signUpPasswordController.text,
-              signUpNameController.text);
+          await Provider.of<AuthProvider>(context, listen: false)
+              .firebaseSignUp(signUpEmailController.text,
+                  signUpPasswordController.text, signUpNameController.text);
 
           setState(() {
             isSignUpAuthenticating = false;
           });
 
           Navigator.pushReplacementNamed(context, QuotesDashboard.routeName);
-        }on PlatformException catch(error){
+        } on PlatformException catch (error) {
           print("PlatformException error : ${error.toString()}");
 
           setState(() {
@@ -137,14 +136,15 @@ class _AuthPageState extends State<AuthPage> {
 
           final snackBar = SnackBar(content: Text(error.message));
           Scaffold.of(context).showSnackBar(snackBar);
-        }  catch (error) {
+        } catch (error) {
           print("error : ${error.toString()}");
 
           setState(() {
             isSignUpAuthenticating = false;
           });
 
-          final snackBar = SnackBar(content: Text("Something went wrong. Please try again!!"));
+          final snackBar = SnackBar(
+              content: Text("Something went wrong. Please try again!!"));
           Scaffold.of(context).showSnackBar(snackBar);
         }
       }
@@ -276,8 +276,7 @@ class _AuthPageState extends State<AuthPage> {
                                 ),
                                 validator: (String email) {
                                   if (email.isEmpty ||
-                                      !RegExp(
-                                          r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
+                                      !RegExp(r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
                                           .hasMatch(email)) {
                                     return 'valid email is required.';
                                   }
@@ -352,7 +351,7 @@ class _AuthPageState extends State<AuthPage> {
                                   suffixIcon: GestureDetector(
                                     onTap: () {
                                       _obscureTextSignUpConfirm =
-                                      !_obscureTextSignUpConfirm;
+                                          !_obscureTextSignUpConfirm;
                                     },
                                     child: Icon(
                                       _obscureTextSignUpConfirm
@@ -409,20 +408,20 @@ class _AuthPageState extends State<AuthPage> {
                       splashColor: authButtonsplashColor,
                       child: isSignUpAuthenticating
                           ? Padding(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 0.0, horizontal: 60.0),
-                          child: CircularProgressIndicator())
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 0.0, horizontal: 60.0),
+                              child: CircularProgressIndicator())
                           : Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 10.0, horizontal: 42.0),
-                        child: Text(
-                          "SIGN UP",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.w700),
-                        ),
-                      ),
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 10.0, horizontal: 42.0),
+                              child: Text(
+                                "SIGN UP",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20.0,
+                                    fontWeight: FontWeight.w700),
+                              ),
+                            ),
                       onPressed: () {
                         if (!isSignUpAuthenticating) {
                           _submitSignUpForm(context);
@@ -523,8 +522,7 @@ class _AuthPageState extends State<AuthPage> {
                                 ),
                                 validator: (String email) {
                                   if (email.isEmpty ||
-                                      !RegExp(
-                                          r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
+                                      !RegExp(r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
                                           .hasMatch(email)) {
                                     return "valid email is required.";
                                   }
@@ -611,20 +609,20 @@ class _AuthPageState extends State<AuthPage> {
                       splashColor: authButtonsplashColor,
                       child: isLoginAuthenticating
                           ? Padding(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 0.0, horizontal: 60.0),
-                          child: CircularProgressIndicator())
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 0.0, horizontal: 60.0),
+                              child: CircularProgressIndicator())
                           : Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 10.0, horizontal: 42.0),
-                        child: Text(
-                          "SIGN IN",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.w500),
-                        ),
-                      ),
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 10.0, horizontal: 42.0),
+                              child: Text(
+                                "SIGN IN",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20.0,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            ),
                       onPressed: () {
                         if (!isLoginAuthenticating) {
                           _submitLoginForm(context);

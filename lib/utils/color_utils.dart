@@ -13,7 +13,7 @@ Color quoteDetailGradientStartColor = Color(0xffE8CBC0);
 Color quoteDetailGradientEndColor = Color(0xff636FA4);
 
 Color profileViewGradientStartColor = Color(0xffFFA17F);
-Color profileViewGradientMidColor =  Color(0xffC779D0);
+Color profileViewGradientMidColor = Color(0xffC779D0);
 Color profileViewGradientEndColor = Color(0xff64b3f4);
 
 Color shimmerHighlightColor = Color(0xff636FA4).withOpacity(0.8);
@@ -26,6 +26,3 @@ Color dashboardTransparentLayerColor = Colors.black12;
 Color authButtonHighlightColor = Colors.transparent;
 Color authButtonsplashColor = Colors.blueAccent[100];
 Color dialogPrimaryColor = Colors.red;
-
-
-

@@ -13,14 +13,12 @@ const String USER_PASSWORD = "app_userPassword";
 const String USER_FIREBASE_TOKEN = "app_userFirebaseToken";
 
 class SharedPrefs {
-  static Future<String> get userID =>
-      PreferencesHelper.getString(USER_ID);
+  static Future<String> get userID => PreferencesHelper.getString(USER_ID);
 
   static set userID(String value) =>
       PreferencesHelper.setString(USER_ID, value);
 
-  static Future<String> get userName =>
-      PreferencesHelper.getString(USER_NAME);
+  static Future<String> get userName => PreferencesHelper.getString(USER_NAME);
 
   static set userName(String value) =>
       PreferencesHelper.setString(USER_NAME, value);
@@ -67,8 +65,8 @@ class SharedPrefs {
   static set userFirebaseToken(String value) =>
       PreferencesHelper.setString(USER_FIREBASE_TOKEN, value);
 
-  static clearPrefs() async{
-    SharedPreferences prefs=await PreferencesHelper.sharedPrefs;
+  static clearPrefs() async {
+    SharedPreferences prefs = await PreferencesHelper.sharedPrefs;
     prefs.clear();
   }
 }

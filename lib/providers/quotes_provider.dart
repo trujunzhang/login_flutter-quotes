@@ -17,15 +17,17 @@ class QuotesProvider with ChangeNotifier {
     NetworkCheck networkCheck = NetworkCheck();
     networkCheck.checkInternet((isNetworkPresent) async {
       if (!isNetworkPresent) {
-        _isLoader=false;
+        _isLoader = false;
         notifyListeners();
         return null;
       } else {
         try {
-          final quoteReference = FirebaseDatabase.instance.reference().child("Quotes").orderByKey();
+          final quoteReference = FirebaseDatabase.instance
+              .reference()
+              .child("Quotes")
+              .orderByKey();
 
           quoteReference.onValue.listen((Event event) async {
-
             final List<QuoteItem> loadedQuotes = [];
             if (event.snapshot.value != null) {
               for (var value in event.snapshot.value.values) {
@@ -52,5 +54,4 @@ class QuotesProvider with ChangeNotifier {
       }
     });
   }
- 
 }

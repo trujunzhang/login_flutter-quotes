@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_quotes/utils/sharedprefs_utils.dart';
 
 class UserProfileProvider with ChangeNotifier {
-
   Future<void> updateProfile(
       String ID,
       String userDesignation,
@@ -21,7 +20,8 @@ class UserProfileProvider with ChangeNotifier {
         imageUrl = userPhoto;
       }
 
-      final userReference = FirebaseDatabase.instance.reference().child("Users");
+      final userReference =
+          FirebaseDatabase.instance.reference().child("Users");
       await userReference.child(ID).update({
         "userDesignation": userDesignation,
         "userWebsite": userWebsite,
@@ -29,10 +29,10 @@ class UserProfileProvider with ChangeNotifier {
         "userPhoto": imageUrl,
       });
 
-      SharedPrefs.userDesignation=userDesignation;
-      SharedPrefs.userWebsite=userWebsite;
-      SharedPrefs.userContact=userContact;
-      SharedPrefs.userPhoto=imageUrl;
+      SharedPrefs.userDesignation = userDesignation;
+      SharedPrefs.userWebsite = userWebsite;
+      SharedPrefs.userContact = userContact;
+      SharedPrefs.userPhoto = imageUrl;
 
       notifyListeners();
     } catch (error) {
@@ -43,7 +43,9 @@ class UserProfileProvider with ChangeNotifier {
   }
 
   Future<String> uploadImage(File image) async {
-    StorageReference firebaseStorageRef = FirebaseStorage.instance.ref().child("userProfiles/${DateTime.now().toIso8601String()}");
+    StorageReference firebaseStorageRef = FirebaseStorage.instance
+        .ref()
+        .child("userProfiles/${DateTime.now().toIso8601String()}");
     StorageUploadTask uploadTask = firebaseStorageRef.putFile(image);
     StorageTaskSnapshot taskSnapshot = await uploadTask.onComplete;
 

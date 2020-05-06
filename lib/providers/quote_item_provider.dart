@@ -27,7 +27,9 @@ class QuoteItem with ChangeNotifier {
   }
 
   Future<String> uploadImage(File image) async {
-    StorageReference firebaseStorageRef = FirebaseStorage.instance.ref().child("quoteImages/${DateTime.now().toIso8601String()}");
+    StorageReference firebaseStorageRef = FirebaseStorage.instance
+        .ref()
+        .child("quoteImages/${DateTime.now().toIso8601String()}");
     StorageUploadTask uploadTask = firebaseStorageRef.putFile(image);
     StorageTaskSnapshot taskSnapshot = await uploadTask.onComplete;
 
@@ -44,7 +46,8 @@ class QuoteItem with ChangeNotifier {
         imageUrl = await uploadImage(imageFile);
       }
 
-      final quoteReference = FirebaseDatabase.instance.reference().child("Quotes");
+      final quoteReference =
+          FirebaseDatabase.instance.reference().child("Quotes");
       String resourceID = quoteReference.push().key;
       if (quoteItem == null || quoteItem.quoteId == null) {
         await quoteReference.child(resourceID).set({
@@ -55,7 +58,6 @@ class QuoteItem with ChangeNotifier {
           "quoteDescription": quoteItem.quoteDescription,
         });
       } else {
-
         await quoteReference.child(quoteItem.quoteId).update({
           "quoteId": quoteItem.quoteId,
           "quoteAuthor": quoteItem.quoteAuthor,
@@ -76,13 +78,13 @@ class QuoteItem with ChangeNotifier {
   }
 
   Future<void> deleteQuote(String quoteId) async {
-    try{
-      final quoteReference = FirebaseDatabase.instance.reference().child("Quotes");
-      quoteReference.child(quoteId).remove().then((_){
+    try {
+      final quoteReference =
+          FirebaseDatabase.instance.reference().child("Quotes");
+      quoteReference.child(quoteId).remove().then((_) {
         notifyListeners();
       });
-
-    }catch (error) {
+    } catch (error) {
       print("error : ${error.toString()}");
 
       throw error;

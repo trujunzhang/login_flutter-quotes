@@ -13,7 +13,7 @@ class QuotesCreation extends StatefulWidget {
   final QuoteItem quoteItem;
   final bool isFromEdit;
 
-  QuotesCreation(this.title, {this.quoteItem,this.isFromEdit=false});
+  QuotesCreation(this.title, {this.quoteItem, this.isFromEdit = false});
 
   @override
   _QuotesCreationState createState() => _QuotesCreationState();
@@ -63,8 +63,8 @@ class _QuotesCreationState extends State<QuotesCreation> {
       if (isEditInitialised) {
         _authorController.text = widget.quoteItem.quoteAuthor;
         _descriptionController.text = widget.quoteItem.quoteDescription;
-        if(categories.contains(widget.quoteItem.quoteCategory)){
-          selectedCategory=widget.quoteItem.quoteCategory;
+        if (categories.contains(widget.quoteItem.quoteCategory)) {
+          selectedCategory = widget.quoteItem.quoteCategory;
         }
         isEditInitialised = false;
       }
@@ -95,9 +95,10 @@ class _QuotesCreationState extends State<QuotesCreation> {
           await Provider.of<QuoteItem>(context, listen: false).uploadQuote(
               _imageFile,
               QuoteItem(
-                quoteId: widget.isFromEdit ? widget.quoteItem.quoteId : null,
+                  quoteId: widget.isFromEdit ? widget.quoteItem.quoteId : null,
                   quoteAuthor: _authorController.text,
-                  quoteImage: widget.isFromEdit ? widget.quoteItem.quoteImage : null,
+                  quoteImage:
+                      widget.isFromEdit ? widget.quoteItem.quoteImage : null,
                   quoteCategory: selectedCategory,
                   quoteDescription: _descriptionController.text));
 
@@ -113,7 +114,8 @@ class _QuotesCreationState extends State<QuotesCreation> {
             isLoading = false;
           });
 
-          final snackBar = SnackBar(content: Text("Something went wrong. Please try again!!"));
+          final snackBar = SnackBar(
+              content: Text("Something went wrong. Please try again!!"));
           _scaffoldKey.currentState.showSnackBar(snackBar);
         }
       }

@@ -15,8 +15,7 @@ class NetworkCheck {
     check().then((internet) {
       if (internet != null && internet) {
         func(true);
-      }
-      else{
+      } else {
         func(false);
       }
     });
