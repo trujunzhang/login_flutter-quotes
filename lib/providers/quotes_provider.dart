@@ -13,7 +13,7 @@ class QuotesProvider with ChangeNotifier {
 
   bool get isLoader => _isLoader;
 
-  Future<List<QuoteItem>> fetchQuotes() async {
+  Future<List<QuoteItem>> get fetchQuotes async {
     NetworkCheck networkCheck = NetworkCheck();
     networkCheck.checkInternet((isNetworkPresent) async {
       if (!isNetworkPresent) {
@@ -24,7 +24,7 @@ class QuotesProvider with ChangeNotifier {
         try {
           final quoteReference = FirebaseDatabase.instance.reference().child("Quotes").orderByKey();
 
-          await quoteReference.onValue.listen((Event event) async {
+          quoteReference.onValue.listen((Event event) async {
 
             final List<QuoteItem> loadedQuotes = [];
             if (event.snapshot.value != null) {
@@ -52,4 +52,5 @@ class QuotesProvider with ChangeNotifier {
       }
     });
   }
+ 
 }

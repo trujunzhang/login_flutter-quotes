@@ -20,13 +20,13 @@ class MyApp extends StatelessWidget {
           value: AuthProvider(),
         ),
         ChangeNotifierProvider(
-          builder: (BuildContext context) => QuoteItem(),
+          create: (BuildContext context) => QuoteItem(),
         ),
         ChangeNotifierProvider(
-          builder: (BuildContext context) => QuotesProvider(),
+          create: (BuildContext context) => QuotesProvider(),
         ),
         ChangeNotifierProvider(
-          builder: (BuildContext context) => UserProfileProvider(),
+          create: (BuildContext context) => UserProfileProvider(),
         ),
       ],
       child: Consumer<AuthProvider>(
@@ -41,6 +41,11 @@ class MyApp extends StatelessWidget {
             home: FutureBuilder<bool>(
                 future: auth.isUserAuthenticated(),
                 builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
+                  if(!snapshot.hasData){
+                    return Container(
+                      color: Colors.white,
+                    );
+                  }
                   if (snapshot.data != null && snapshot.data) {
                     return QuotesDashboard();
                   } else {

@@ -26,13 +26,13 @@ class _AuthPageState extends State<AuthPage> {
   TextEditingController loginPasswordController = TextEditingController();
 
   bool _obscureTextLogin = true;
-  bool _obscureTextSignup = true;
-  bool _obscureTextSignupConfirm = true;
+  bool _obscureTextSignUp = true;
+  bool _obscureTextSignUpConfirm = true;
 
-  TextEditingController signupEmailController = TextEditingController();
-  TextEditingController signupNameController = TextEditingController();
-  TextEditingController signupPasswordController = TextEditingController();
-  TextEditingController signupConfirmPasswordController =
+  TextEditingController signUpEmailController = TextEditingController();
+  TextEditingController signUpNameController = TextEditingController();
+  TextEditingController signUpPasswordController = TextEditingController();
+  TextEditingController signUpConfirmPasswordController =
   TextEditingController();
 
   PageController _pageController = PageController(initialPage: 0);
@@ -119,9 +119,9 @@ class _AuthPageState extends State<AuthPage> {
 
         try {
           await Provider.of<AuthProvider>(context, listen: false).firebaseSignUp(
-              signupEmailController.text,
-              signupPasswordController.text,
-              signupNameController.text);
+              signUpEmailController.text,
+              signUpPasswordController.text,
+              signUpNameController.text);
 
           setState(() {
             isSignUpAuthenticating = false;
@@ -226,7 +226,7 @@ class _AuthPageState extends State<AuthPage> {
                                   right: 25.0),
                               child: TextFormField(
                                 focusNode: mFocusNodeName,
-                                controller: signupNameController,
+                                controller: signUpNameController,
                                 keyboardType: TextInputType.text,
                                 textCapitalization: TextCapitalization.words,
                                 style: TextStyle(
@@ -258,7 +258,7 @@ class _AuthPageState extends State<AuthPage> {
                                   right: 25.0),
                               child: TextFormField(
                                 focusNode: mFocusNodeEmail,
-                                controller: signupEmailController,
+                                controller: signUpEmailController,
                                 keyboardType: TextInputType.emailAddress,
                                 style: TextStyle(
                                     fontWeight: FontWeight.w500,
@@ -292,8 +292,8 @@ class _AuthPageState extends State<AuthPage> {
                                   right: 25.0),
                               child: TextFormField(
                                 focusNode: mFocusNodePassword,
-                                controller: signupPasswordController,
-                                obscureText: _obscureTextSignup,
+                                controller: signUpPasswordController,
+                                obscureText: _obscureTextSignUp,
                                 style: TextStyle(
                                     fontWeight: FontWeight.w500,
                                     fontSize: 16.0,
@@ -309,10 +309,10 @@ class _AuthPageState extends State<AuthPage> {
                                       fontSize: 16.0),
                                   suffixIcon: GestureDetector(
                                     onTap: () {
-                                      _obscureTextSignup = !_obscureTextSignup;
+                                      _obscureTextSignUp = !_obscureTextSignUp;
                                     },
                                     child: Icon(
-                                      _obscureTextSignup
+                                      _obscureTextSignUp
                                           ? FontAwesomeIcons.eye
                                           : FontAwesomeIcons.eyeSlash,
                                       size: 15.0,
@@ -334,8 +334,8 @@ class _AuthPageState extends State<AuthPage> {
                                   left: 25.0,
                                   right: 25.0),
                               child: TextFormField(
-                                controller: signupConfirmPasswordController,
-                                obscureText: _obscureTextSignupConfirm,
+                                controller: signUpConfirmPasswordController,
+                                obscureText: _obscureTextSignUpConfirm,
                                 style: TextStyle(
                                     fontWeight: FontWeight.w500,
                                     fontSize: 16.0,
@@ -351,11 +351,11 @@ class _AuthPageState extends State<AuthPage> {
                                       fontSize: 16.0),
                                   suffixIcon: GestureDetector(
                                     onTap: () {
-                                      _obscureTextSignupConfirm =
-                                      !_obscureTextSignupConfirm;
+                                      _obscureTextSignUpConfirm =
+                                      !_obscureTextSignUpConfirm;
                                     },
                                     child: Icon(
-                                      _obscureTextSignupConfirm
+                                      _obscureTextSignUpConfirm
                                           ? FontAwesomeIcons.eye
                                           : FontAwesomeIcons.eyeSlash,
                                       size: 15.0,
@@ -367,7 +367,7 @@ class _AuthPageState extends State<AuthPage> {
                                   if (value.isEmpty) {
                                     return "confirmation is required.";
                                   }
-                                  if (signupPasswordController.text != value) {
+                                  if (signUpPasswordController.text != value) {
                                     return 'passwords do not match.';
                                   }
                                 },
@@ -666,16 +666,3 @@ var primaryGradient = LinearGradient(
   begin: Alignment.topCenter,
   end: Alignment.bottomCenter,
 );
-
-/*checkInternetConnectivity().then((isNetworkPresent){
-      if (!isNetworkPresent) {
-        final snackBar =SnackBar(content: Text('Please check your internet connection !!'));
-
-        Scaffold.of(context).showSnackBar(snackBar);
-        return;
-      } else {
-        setState(() {
-          isLoginAuthenticating = true;
-        });
-      }
-    });*/

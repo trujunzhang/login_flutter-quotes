@@ -34,10 +34,10 @@ class _QuotesDashboardState extends State<QuotesDashboard> {
   }
 
   @override
-  Future didChangeDependencies() {
+  Future didChangeDependencies() async {
     if (isInit) {
       quotesProvider = Provider.of<QuotesProvider>(context, listen: false);
-      quotesList = quotesProvider.fetchQuotes();
+      quotesList = quotesProvider.fetchQuotes;
       isInit = false;
     }
     super.didChangeDependencies();
