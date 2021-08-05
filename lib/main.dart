@@ -49,7 +49,8 @@ class MyApp extends StatelessWidget {
                   if (snapshot.data != null && snapshot.data) {
                     return QuotesDashboard();
                   } else {
-                    return AuthPage();
+                    return QuotesDashboard();
+                    // return AuthPage();
                   }
                 }),
             routes: {

@@ -27,11 +27,11 @@ class QuoteItem with ChangeNotifier {
   }
 
   Future<String> uploadImage(File image) async {
-    StorageReference firebaseStorageRef = FirebaseStorage.instance
+    Reference firebaseStorageRef = FirebaseStorage.instance
         .ref()
         .child("quoteImages/${DateTime.now().toIso8601String()}");
-    StorageUploadTask uploadTask = firebaseStorageRef.putFile(image);
-    StorageTaskSnapshot taskSnapshot = await uploadTask.onComplete;
+    UploadTask uploadTask = firebaseStorageRef.putFile(image);
+    TaskSnapshot taskSnapshot = await uploadTask.whenComplete(() => null);
 
     String storagePath = await taskSnapshot.ref.getDownloadURL();
 

@@ -412,14 +412,16 @@ class _QuotesCreationState extends State<QuotesCreation> {
   }
 
   _getImage(BuildContext context, ImageSource source) async {
-    ImagePicker.pickImage(
+    final ImagePicker _picker = ImagePicker();
+    _picker.pickImage(
       source: source,
       maxWidth: 400.0,
       maxHeight: 400.0,
-    ).then((File image) async {
+    ).then((XFile image) async {
       if (image != null) {
         setState(() {
-          _imageFile = image;
+          // TODO: DJZHANG(08/05/2021)
+          // _imageFile = image.path;
           /*String filePath = image.path;
           Uri fileURI = image.uri;*/
         });

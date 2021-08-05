@@ -2,114 +2,82 @@ PODS:
   - connectivity (0.0.1):
     - Flutter
     - Reachability
-  - Firebase/Auth (6.23.0):
+  - Firebase/Auth (8.3.0):
     - Firebase/CoreOnly
-    - FirebaseAuth (~> 6.5.2)
-  - Firebase/Core (6.23.0):
+    - FirebaseAuth (~> 8.3.0)
+  - Firebase/CoreOnly (8.3.0):
+    - FirebaseCore (= 8.3.0)
+  - Firebase/Database (8.3.0):
     - Firebase/CoreOnly
-    - FirebaseAnalytics (= 6.4.2)
-  - Firebase/CoreOnly (6.23.0):
-    - FirebaseCore (= 6.6.7)
-  - Firebase/Database (6.23.0):
+    - FirebaseDatabase (~> 8.3.0)
+  - Firebase/Storage (8.3.0):
     - Firebase/CoreOnly
-    - FirebaseDatabase (~> 6.2.0)
-  - Firebase/Storage (6.23.0):
-    - Firebase/CoreOnly
-    - FirebaseStorage (~> 3.6.1)
-  - firebase_auth (0.0.1):
-    - Firebase/Auth (~> 6.0)
-    - Firebase/Core
+    - FirebaseStorage (~> 8.3.0)
+  - firebase_auth (3.0.1):
+    - Firebase/Auth (= 8.3.0)
+    - firebase_core
     - Flutter
-  - firebase_core (0.0.1):
-    - Firebase/Core
+  - firebase_core (1.4.0):
+    - Firebase/CoreOnly (= 8.3.0)
     - Flutter
-  - firebase_database (0.0.1):
-    - Firebase/Database
+  - firebase_database (7.1.2):
+    - Firebase/Database (= 8.3.0)
+    - firebase_core
     - Flutter
-  - firebase_storage (0.0.1):
-    - Firebase/Storage
+  - firebase_storage (10.0.1):
+    - Firebase/Storage (= 8.3.0)
+    - firebase_core
     - Flutter
-  - FirebaseAnalytics (6.4.2):
-    - FirebaseCore (~> 6.6)
-    - FirebaseInstallations (~> 1.2)
-    - GoogleAppMeasurement (= 6.4.2)
-    - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
-    - GoogleUtilities/MethodSwizzler (~> 6.0)
-    - GoogleUtilities/Network (~> 6.0)
-    - "GoogleUtilities/NSData+zlib (~> 6.0)"
-    - nanopb (= 0.3.9011)
-  - FirebaseAuth (6.5.2):
-    - FirebaseAuthInterop (~> 1.0)
-    - FirebaseCore (~> 6.6)
-    - GoogleUtilities/AppDelegateSwizzler (~> 6.5)
-    - GoogleUtilities/Environment (~> 6.5)
-    - GTMSessionFetcher/Core (~> 1.1)
-  - FirebaseAuthInterop (1.1.0)
-  - FirebaseCore (6.6.7):
-    - FirebaseCoreDiagnostics (~> 1.2)
-    - FirebaseCoreDiagnosticsInterop (~> 1.2)
-    - GoogleUtilities/Environment (~> 6.5)
-    - GoogleUtilities/Logger (~> 6.5)
-  - FirebaseCoreDiagnostics (1.2.4):
-    - FirebaseCoreDiagnosticsInterop (~> 1.2)
-    - GoogleDataTransportCCTSupport (~> 3.0)
-    - GoogleUtilities/Environment (~> 6.5)
-    - GoogleUtilities/Logger (~> 6.5)
-    - nanopb (~> 0.3.901)
-  - FirebaseCoreDiagnosticsInterop (1.2.0)
-  - FirebaseDatabase (6.2.0):
-    - FirebaseAuthInterop (~> 1.0)
-    - FirebaseCore (~> 6.0)
+  - FirebaseAuth (8.3.0):
+    - FirebaseCore (~> 8.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
+    - GoogleUtilities/Environment (~> 7.4)
+    - GTMSessionFetcher/Core (~> 1.5)
+  - FirebaseCore (8.3.0):
+    - FirebaseCoreDiagnostics (~> 8.0)
+    - GoogleUtilities/Environment (~> 7.4)
+    - GoogleUtilities/Logger (~> 7.4)
+  - FirebaseCoreDiagnostics (8.4.0):
+    - GoogleDataTransport (~> 9.0)
+    - GoogleUtilities/Environment (~> 7.4)
+    - GoogleUtilities/Logger (~> 7.4)
+    - nanopb (~> 2.30908.0)
+  - FirebaseDatabase (8.3.0):
+    - FirebaseCore (~> 8.0)
     - leveldb-library (~> 1.22)
-  - FirebaseInstallations (1.2.0):
-    - FirebaseCore (~> 6.6)
-    - GoogleUtilities/Environment (~> 6.6)
-    - GoogleUtilities/UserDefaults (~> 6.6)
-    - PromisesObjC (~> 1.2)
-  - FirebaseStorage (3.6.1):
-    - FirebaseAuthInterop (~> 1.1)
-    - FirebaseCore (~> 6.6)
-    - GTMSessionFetcher/Core (~> 1.1)
+  - FirebaseStorage (8.3.0):
+    - FirebaseCore (~> 8.0)
+    - GTMSessionFetcher/Core (~> 1.5)
   - Flutter (1.0.0)
-  - GoogleAppMeasurement (6.4.2):
-    - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
-    - GoogleUtilities/MethodSwizzler (~> 6.0)
-    - GoogleUtilities/Network (~> 6.0)
-    - "GoogleUtilities/NSData+zlib (~> 6.0)"
-    - nanopb (= 0.3.9011)
-  - GoogleDataTransport (6.0.0)
-  - GoogleDataTransportCCTSupport (3.0.0):
-    - GoogleDataTransport (~> 6.0)
-    - nanopb (~> 0.3.901)
-  - GoogleUtilities/AppDelegateSwizzler (6.6.0):
+  - GoogleDataTransport (9.1.0):
+    - GoogleUtilities/Environment (~> 7.2)
+    - nanopb (~> 2.30908.0)
+    - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleUtilities/AppDelegateSwizzler (7.5.0):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
     - GoogleUtilities/Network
-  - GoogleUtilities/Environment (6.6.0):
-    - PromisesObjC (~> 1.2)
-  - GoogleUtilities/Logger (6.6.0):
+  - GoogleUtilities/Environment (7.5.0):
+    - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleUtilities/Logger (7.5.0):
     - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (6.6.0):
-    - GoogleUtilities/Logger
-  - GoogleUtilities/Network (6.6.0):
+  - GoogleUtilities/Network (7.5.0):
     - GoogleUtilities/Logger
     - "GoogleUtilities/NSData+zlib"
     - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (6.6.0)"
-  - GoogleUtilities/Reachability (6.6.0):
+  - "GoogleUtilities/NSData+zlib (7.5.0)"
+  - GoogleUtilities/Reachability (7.5.0):
     - GoogleUtilities/Logger
-  - GoogleUtilities/UserDefaults (6.6.0):
-    - GoogleUtilities/Logger
-  - GTMSessionFetcher/Core (1.3.1)
+  - GTMSessionFetcher/Core (1.6.1)
   - image_picker (0.0.1):
     - Flutter
-  - leveldb-library (1.22)
-  - nanopb (0.3.9011):
-    - nanopb/decode (= 0.3.9011)
-    - nanopb/encode (= 0.3.9011)
-  - nanopb/decode (0.3.9011)
-  - nanopb/encode (0.3.9011)
-  - PromisesObjC (1.2.8)
+  - leveldb-library (1.22.1)
+  - nanopb (2.30908.0):
+    - nanopb/decode (= 2.30908.0)
+    - nanopb/encode (= 2.30908.0)
+  - nanopb/decode (2.30908.0)
+  - nanopb/encode (2.30908.0)
+  - PromisesObjC (2.0.0)
   - Reachability (3.2)
   - shared_preferences (0.0.1):
     - Flutter
@@ -127,18 +95,12 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Firebase
-    - FirebaseAnalytics
     - FirebaseAuth
-    - FirebaseAuthInterop
     - FirebaseCore
     - FirebaseCoreDiagnostics
-    - FirebaseCoreDiagnosticsInterop
     - FirebaseDatabase
-    - FirebaseInstallations
     - FirebaseStorage
-    - GoogleAppMeasurement
     - GoogleDataTransport
-    - GoogleDataTransportCCTSupport
     - GoogleUtilities
     - GTMSessionFetcher
     - leveldb-library
@@ -165,34 +127,28 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/shared_preferences/ios"
 
 SPEC CHECKSUMS:
-  connectivity: 6e94255659cc86dcbef1d452ad3e0491bb1b3e75
-  Firebase: 6156f31b88060f58b1d2cd25dad534f34693af81
-  firebase_auth: 00d6e1ab6d890cd6d3c624df61702e3a7072d1e3
-  firebase_core: 0d8be0e0d14c4902953aeb5ac5d7316d1fe4b978
-  firebase_database: ba12319259e324c8e52e5e4efc8c6f3d33da1ee3
-  firebase_storage: 5e931af5cdef32331676c659bdd1ebcaba9dc78a
-  FirebaseAnalytics: 558f7a03d19de451093032c806f39d5f9dff096e
-  FirebaseAuth: e8dbf8451b6e0ff9448a55b6af123cdc09205a28
-  FirebaseAuthInterop: fd4b5cd03f56c45d4a71dc1e52c050fd19938859
-  FirebaseCore: de6e056c91a1fb1e44b3e8271cf8a21970fd70b4
-  FirebaseCoreDiagnostics: f4b94359f7232e1685ab4bea6f8615cdc78c6deb
-  FirebaseCoreDiagnosticsInterop: db67213cd54e9fd18300317689a7fbdf1feba857
-  FirebaseDatabase: dfddaeb7541e21dcb011e8eb2d6469152424600a
-  FirebaseInstallations: e563f16e58ef20d7d5f29610da39117f15ed2b76
-  FirebaseStorage: a18cc33e9c7c82c47438af826c19e274e02995de
+  connectivity: c4130b2985d4ef6fd26f9702e886bd5260681467
+  Firebase: 676d38f72a73842699c067c657c41eabf0ace4b7
+  firebase_auth: 3b08d67bda60758347d15584fd0a7a4cf5f6496f
+  firebase_core: 72374607c8c6f5a0adc0559e5c5bf57deda975e3
+  firebase_database: 27de7affa8b73e25afe25ee7ec18e3216d8d279c
+  firebase_storage: 0569941c22a1362f682ebef93755d8916601d22f
+  FirebaseAuth: e5277a23f6a4110ba35cbf8dbe9e2a970d2888f2
+  FirebaseCore: 04eb910476b4152ba15fbe3d9b5abcdf5942e4b8
+  FirebaseCoreDiagnostics: 0e22a91849e4abc0f93355ae9f940a3834546500
+  FirebaseDatabase: d110e120aa89c84c498b77dc9884d85ae0ca7f16
+  FirebaseStorage: 57f5438ea93f7e4a42a1e2fff715aa92f0ef091a
   Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
-  GoogleAppMeasurement: 2253e99c1f22638cf234c059144660c338ad76c3
-  GoogleDataTransport: ccc55b48f965c526242897c38970ba6393dd84e1
-  GoogleDataTransportCCTSupport: 924841f591ab9ea80e653d69750f68922e0bc02a
-  GoogleUtilities: 8f1c5c854734dcade89bb6b9f856d7d223a7f5e9
-  GTMSessionFetcher: 7ac35925b40132c065c55dfa34870526d0578a32
-  image_picker: 66aa71bc96850a90590a35d4c4a2907b0d823109
-  leveldb-library: 7728f77422f7cfb17a105f5f067970b088fbdd5d
-  nanopb: cbb9752b9d191e97df2cc66d4fb74cf2c91fb0ec
-  PromisesObjC: af0430cc6b60969f1b694cdbb59e7d11a3d03d89
+  GoogleDataTransport: 3e60aaa0f854ea9de915deb609c215fa7585a842
+  GoogleUtilities: 17d7e9098e1af503af94fa51e541a1711e2928c5
+  GTMSessionFetcher: ac571f62511f6e9228b2704683fd8082762b9ef0
+  image_picker: e06f7a68f000bd36f552c1847e33cda96ed31f1f
+  leveldb-library: dfb8c69eb624316960b5a55b6d950e8f904d8dd0
+  nanopb: 593d087e93a44176893888d3d21bf2c4e845e853
+  PromisesObjC: f439dad68fa4d1615c1c75645bb6d288e83f29cc
   Reachability: aa197ff14f77f486c350badb77f64dbbb3f9da77
   shared_preferences: af6bfa751691cdc24be3045c43ec037377ada40d
 
-PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
+PODFILE CHECKSUM: fe0e1ee7f3d1f7d00b11b474b62dd62134535aea
 
 COCOAPODS: 1.10.1
