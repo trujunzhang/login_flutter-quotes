@@ -513,8 +513,8 @@ class _QuotesDashboardState extends State<QuotesDashboard> {
   }
 
   initialiseUserDetails() async {
-    var name = await SharedPrefs.userName;
-    var email = await SharedPrefs.userEmail;
+    var name = await SharedPrefs.userNameStr;
+    var email = await SharedPrefs.userEmailStr;
 
     if (name != null && name.isNotEmpty) {
       userName = name;

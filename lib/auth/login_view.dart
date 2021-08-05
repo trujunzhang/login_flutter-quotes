@@ -40,7 +40,7 @@ class _LoginViewState extends State<LoginView> {
         final snackBar =
             SnackBar(content: Text("Please check your internet connection !!"));
 
-        Scaffold.of(context).showSnackBar(snackBar);
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
         return;
       } else {
         setState(() {
@@ -64,7 +64,7 @@ class _LoginViewState extends State<LoginView> {
           });
 
           final snackBar = SnackBar(content: Text(error.message));
-          Scaffold.of(context).showSnackBar(snackBar);
+          ScaffoldMessenger.of(context).showSnackBar(snackBar);
         } catch (error) {
           print("error : ${error.toString()}");
 
@@ -74,7 +74,7 @@ class _LoginViewState extends State<LoginView> {
 
           final snackBar = SnackBar(
               content: Text("Something went wrong. Please try again!!"));
-          Scaffold.of(context).showSnackBar(snackBar);
+          ScaffoldMessenger.of(context).showSnackBar(snackBar);
         }
       }
     });
@@ -257,7 +257,7 @@ class _LoginViewState extends State<LoginView> {
               ),
               Padding(
                 padding: EdgeInsets.only(top: 10.0),
-                child: FlatButton(
+                child: TextButton(
                   onPressed: () {
                     widget.pageController.animateToPage(1,
                         duration: Duration(milliseconds: 500),

@@ -30,7 +30,7 @@ dependencies:
   firebase_database: ^3.0.7
   firebase_auth: ^0.11.1+7
   intl: ^0.16.0
-  shared_preferences: ^0.5.3+1
+  shared_preferences: ^2.0.6
   firebase_storage: ^3.0.6
   shimmer: ^1.0.1
 

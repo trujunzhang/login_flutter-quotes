@@ -16,7 +16,7 @@ class AuthProvider with ChangeNotifier {
   String get password => _userPassword;
 
   Future<bool> isUserAuthenticated() async {
-    String email = await SharedPrefs.userEmail;
+    String email = await SharedPrefs.userEmailStr;
 
     return email != null && email.isNotEmpty;
   }
@@ -56,7 +56,7 @@ class AuthProvider with ChangeNotifier {
         notifyListeners();
       });
     } on PlatformException catch (error) {
-      print('Login Catch Error Details: ${error}');
+      print('Login Catch Error Details: $error');
 
       throw error;
     } catch (error) {
@@ -79,7 +79,7 @@ class AuthProvider with ChangeNotifier {
       prefs.setString("userName", _userName);
       String firebaseToken = prefs.getString("userToken");*/
 
-      String firebaseToken = await SharedPrefs.userFirebaseToken;
+      String firebaseToken = await SharedPrefs.userFirebaseTokenStr;
       final userReference =
           FirebaseDatabase.instance.reference().child("Users");
       String ID = userReference.push().key;
@@ -109,7 +109,7 @@ class AuthProvider with ChangeNotifier {
 
       notifyListeners();
     } on PlatformException catch (error) {
-      print('SignUp Catch Error Details: ${error}');
+      print('SignUp Catch Error Details: $error');
 
       throw error;
     } catch (error) {

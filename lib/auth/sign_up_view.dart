@@ -45,7 +45,7 @@ class _SignUpViewState extends State<SignUpView> {
         final snackBar =
             SnackBar(content: Text("Please check your internet connection !!"));
 
-        Scaffold.of(context).showSnackBar(snackBar);
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
         return;
       } else {
         setState(() {
@@ -70,7 +70,7 @@ class _SignUpViewState extends State<SignUpView> {
           });
 
           final snackBar = SnackBar(content: Text(error.message));
-          Scaffold.of(context).showSnackBar(snackBar);
+          ScaffoldMessenger.of(context).showSnackBar(snackBar);
         } catch (error) {
           print("error : ${error.toString()}");
 

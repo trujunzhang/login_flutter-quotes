@@ -13,53 +13,53 @@ const String USER_PASSWORD = "app_userPassword";
 const String USER_FIREBASE_TOKEN = "app_userFirebaseToken";
 
 class SharedPrefs {
-  static Future<String> get userID => PreferencesHelper.getString(USER_ID);
+  static Future<String> get userIDStr => PreferencesHelper.getString(USER_ID);
 
   static set userID(String value) =>
       PreferencesHelper.setString(USER_ID, value);
 
-  static Future<String> get userName => PreferencesHelper.getString(USER_NAME);
+  static Future<String> get userNameStr => PreferencesHelper.getString(USER_NAME);
 
   static set userName(String value) =>
       PreferencesHelper.setString(USER_NAME, value);
 
-  static Future<String> get userPhoto =>
+  static Future<String> get userPhotoStr =>
       PreferencesHelper.getString(USER_PHOTO);
 
   static set userPhoto(String value) =>
       PreferencesHelper.setString(USER_PHOTO, value);
 
-  static Future<String> get userEmail =>
+  static Future<String> get userEmailStr =>
       PreferencesHelper.getString(USER_EMAIL);
 
   static set userEmail(String value) =>
       PreferencesHelper.setString(USER_EMAIL, value);
 
-  static Future<String> get userWebsite =>
+  static Future<String> get userWebsiteStr =>
       PreferencesHelper.getString(USER_WEBSITE);
 
   static set userWebsite(String value) =>
       PreferencesHelper.setString(USER_WEBSITE, value);
 
-  static Future<String> get userDesignation =>
+  static Future<String> get userDesignationStr =>
       PreferencesHelper.getString(USER_DESIGNATION);
 
   static set userDesignation(String value) =>
       PreferencesHelper.setString(USER_DESIGNATION, value);
 
-  static Future<String> get userContact =>
+  static Future<String> get userContactStr =>
       PreferencesHelper.getString(USER_CONTACT);
 
   static set userContact(String value) =>
       PreferencesHelper.setString(USER_CONTACT, value);
 
-  static Future<String> get userPassword =>
+  static Future<String> get userPasswordStr =>
       PreferencesHelper.getString(USER_PASSWORD);
 
   static set userPassword(String value) =>
       PreferencesHelper.setString(USER_PASSWORD, value);
 
-  static Future<String> get userFirebaseToken =>
+  static Future<String> get userFirebaseTokenStr =>
       PreferencesHelper.getString(USER_FIREBASE_TOKEN);
 
   static set userFirebaseToken(String value) =>

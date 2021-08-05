@@ -42,12 +42,12 @@ class _UserProfileState extends State<UserProfile> {
   }
 
   initialiseUserDetails() async {
-    var name = await SharedPrefs.userName;
-    var email = await SharedPrefs.userEmail;
-    var website = await SharedPrefs.userWebsite;
-    var designation = await SharedPrefs.userDesignation;
-    var contact = await SharedPrefs.userContact;
-    var photo = await SharedPrefs.userPhoto;
+    var name = await SharedPrefs.userNameStr;
+    var email = await SharedPrefs.userEmailStr;
+    var website = await SharedPrefs.userWebsiteStr;
+    var designation = await SharedPrefs.userDesignationStr;
+    var contact = await SharedPrefs.userContactStr;
+    var photo = await SharedPrefs.userPhotoStr;
 
     if (name != null && name.isNotEmpty) {
       userName = name;
@@ -460,7 +460,7 @@ class _UserProfileState extends State<UserProfile> {
         });
 
         try {
-          var ID = await SharedPrefs.userID;
+          var ID = await SharedPrefs.userIDStr;
           await Provider.of<UserProfileProvider>(context, listen: false)
               .updateProfile(
                   ID,
